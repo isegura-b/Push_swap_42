@@ -6,7 +6,7 @@
 /*   By: isegura- <isegura-@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:13:18 by isegura-          #+#    #+#             */
-/*   Updated: 2025/02/07 17:03:27 by isegura-         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:13:08 by isegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,41 +23,25 @@ int	is_num(char **av)
 {
 	int	i;
 	int	j;
-	bool	sign;
 
 	j = 1;
 	while (av[j])
 	{
-		sign = false;
 		i = 0;
 		if (av[i][0] == '\0')
 			return (1);
 		if ((av[j][i]) == '-' || (av[j][i]) == '+')
-		{
-			sign = true;
 			i++;
-		}
-		if (!ft_isdigit(av[j][i])) // Si después del signo no hay un número, es inválido
+		if (!ft_isdigit(av[j][i]))
 			return (1);
-		while (av[j][i]) // Recorre toda la cadena
+		while (av[j][i])
 		{
-			if (!ft_isdigit(av[j][i])) // Si hay algo que no sea número, error
+			if (!ft_isdigit(av[j][i]))
 				return (1);
 			i++;
 		}
 		j++;
 	}
-		/*
-		while (!ft_isdigit((av[j][i])))
-		{
-			if (((av[j][i]) == '-' || (av[j][i]) == '+') && sign == true)
-				return (1);
-			i++;
-		}
-		if (av[j][i] == '\0')
-			return (1);
-		j++;
-	}*/
 	return (0);
 }
 
